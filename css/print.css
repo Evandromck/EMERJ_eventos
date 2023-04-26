@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+background:transparent !important;
+color:#000 !important;
+text-shadow:none !important;
+filter:none !important;
+-ms-filter:none !important;
+}
+ 
+body {
+margin:0;
+padding:0;
+line-height: 1.4em;
+}
+
+body {
+font: 12pt "Arial", Times, serif;
+color: #000;
+}
+ 
+h1 {
+font-size: 20pt;
+}
+ 
+h2 {
+font-size: 18pt;
+}
+ 
+h3 {
+font-size: 14pt;
+}
+
+@page {
+margin: 1.0cm;
+}
+
+img {
+max-width: 100%;
+}
+
+aside {
+display:block;
+page-break-before: always;
+}
+
+a, a:visited {
+text-decoration: underline;
+}
+
+p {
+widows: 3;
+}
+
+aside {
+display:block;
+page-break-before: always;
+}
+
+nav, video, audio, object, embed{ 
+display:none; 
+}
+
+/*nav, ul, video, audio, object, embed { 
+display:none; 
+}*/
+
+footer{
+	display:block;
+	text-align:center;
+}

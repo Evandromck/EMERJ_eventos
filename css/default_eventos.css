@@ -1,0 +1,289 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 20px 0;
+	margin-bottom:0px;
+	background: #FFFFFF;
+	font: normal small "Arial", Helvetica, sans-serif;
+	color: #666666;
+}
+
+.button_eventos {
+    border: 1px solid #00344c;
+	border-radius: 5px;
+    color: #000;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 4px;
+	width: 150px;
+}
+
+.campo_form {
+    border: 1px solid #00344c;
+	border-radius: 5px;
+    color: #000;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 4px;
+}
+
+/* Boxed Style */
+
+.boxed {
+}
+/*
+.boxed .title {
+	background: #02344D url(../images/img06.gif) repeat-x;
+}*/
+
+.boxed .title h2 {
+	height: 28px;
+	padding: 12px 0 0 20px;
+	text-transform: uppercase;
+	font-size: 1em;
+	color: #FFFFFF;
+}
+
+.container_eventos{
+	border-style:none;
+	border-color:#FFF;
+}
+.tabelanew_eventos{
+	border-style:solid;
+	border-color:#FFF;
+	border-width:medium;
+}
+
+.boxed .content {
+	padding: 20px;
+	border-top: 1px solid #FFFFFF;
+	background: url(../images/img07.gif) repeat-x;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+/* Post */
+
+.post {
+}
+
+.post .title {
+	background: #02344D url(../images/img06.gif) repeat-x;
+	font-size: 1em;
+	color: #FFFFFF;
+}
+
+.post .title span {
+	display: block;
+	height: 28px;
+	padding: 12px 0 0 20px;
+}
+
+.post .date {
+	margin-top: -25px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	text-align: right;
+	font-size: x-small;
+	color: #FFFFFF;
+}
+
+.post .date .month {
+}
+
+.post .date .day {
+}
+
+.post .date .year {
+}
+
+.post .meta {
+	clear: both;
+}
+
+.post .meta p {
+	margin: 0;
+	padding: 10px 20px 40px 20px;
+	border-top: 1px dotted #CCCCCC;
+	line-height: normal;
+	font-size: x-small;
+}
+
+.post .story {
+	padding: 20px;
+	border-top: 1px solid #FFFFFF;
+	background: url(../images/img07.gif) repeat-x;
+}
+
+#barra {
+	float: center;
+	width: 950px;
+	height: 30px;
+	margin-left: 20px;
+}
+
+#logo h1 {
+	float: left;
+	margin: 0;
+	padding: 50px 0 0 0;
+	font-size: 2.6em;
+}
+
+#logo h2 {
+	float: left;
+	margin-top: -5px;
+	font-size: 1em;
+}
+
+#logo a {
+	text-decoration: none;
+	color: #000000;
+}
+
+/* Content */
+
+#content {
+	width: 920px;
+	margin-left:20px;
+	padding: 20px;
+	background:none;
+	border-top: 1px solid #FFFFFF;
+}
+
+/* Content > Main */
+
+#main {
+	float: left;
+	width: 650px;
+	padding-left: 20px;
+}
+
+/* Content > Main > Welcome */
+
+#welcome {
+}
+
+/* Content > Main > Example */
+
+#example {
+}
+
+/* Content > Sidebar */
+
+#sidebar {
+	float: left;
+	width: 220px;
+}
+
+#sidebar .boxed .title h2 {
+	background: url(../images/img08.gif) no-repeat;
+}
+
+/* Content > Sidebar > Login */
+
+#login {
+}
+
+#login form {
+}
+
+#login fieldset {
+	border: none;
+}
+
+#login legend {
+	display: none;
+}
+
+#login label {
+	display: block;
+}
+
+#login input {
+	margin-bottom: 10px;
+	padding: 2px 5px;
+	font: normal small "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #666666;
+}
+
+#inputtext1, #inputtext2 {
+	width: 8px;
+}
+
+#inputsubmit1 {
+	margin: 0;
+	padding: 0;
+}
+
+/* Content > Sidebar > Updates*/
+
+#updates {
+}
+
+#updates ul {
+	margin: 0;
+	list-style: none;
+}
+
+#updates h3 {
+	font-size: .8em;
+}
+
+#updates p {
+	line-height: normal;
+	font-size: .8em;
+}
+
+#updates a {
+	text-decoration: none;
+}
+
+/* Content > Sidebar2 */
+
+#sidebar2 .boxed .title h2 {
+	background: url(../images/img10.gif) no-repeat right top;
+	background: url(../images/img08.gif) no-repeat left top;
+}
+
+/* Content > Sidebar2 > Sponsors */
+
+#sponsors {
+}
+
+#sponsors ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: inside;
+}
+
+/* Content > Sidebar2 > ad120x600 */
+
+#ad120x600 {
+	text-align: center;
+}
+
+#legal {
+}
+
+
+#col3 ul li a {
+display: block;
+text-decoration: none;
+margin: 0;
+padding: 5px 0 5px 15px;
+border-bottom: 1px solid #C0C0C0;
+color: #3D8CB8;
+background: transparent url(../images/icon.gif) left center no-repeat;
+}
+#col3 ul li a:hover {
+background: #f2f2f2 url(../images/icon.gif) left center no-repeat;
+color: #666;
+}

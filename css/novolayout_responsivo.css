@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+     font-family:"Titillium Web";
+     src:url(../fonte/TitilliumWeb-Regular.ttf);
+	 font-weight:normal;
+	 font-style:normal;
+}
+
+body {
+  font-family:"Titillium Web";  
+	font-weight:normal;
+	font-style:normal;
+	font-size: 15px;
+}
+
+
+.h2{
+font-size:17px;
+font-weight:bold;
+font-family:"Titillium Web";
+color:#A5A5A5;
+}
+
+.legendabanner{
+	font-size:16px;
+	color:#00344c;
+	font-family:"Titillium Web";
+}
+a.linkpadrao:link {
+	text-decoration:none;
+	font-weight:bold;
+	color:#6E0000;
+}
+a.linkpadrao:visited {
+	text-decoration: none;
+	font-weight:bold;
+	color:#6E0000;
+}
+a.linkpadrao:hover {
+	text-decoration:underline;
+	font-weight:bold;
+	color:#6E0000;
+}
+a.linkpadrao:active {
+	text-decoration:underline;
+	font-weight:bold;
+	color:#6E0000;
+}
+.textoconteudo{
+	font-size:15px;
+}
+
+a.redessociais_topo:link {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+a.redessociais_topo:visited {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+a.redessociais_topo:hover {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+a.redessociais_topo:active {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+
+a.redessociais_topo_principal:link {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+a.redessociais_topo_principal:visited {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+a.redessociais_topo_principal:hover {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+a.redessociais_topo_principal:active {
+	text-decoration:none;
+	display:inline;
+	line-height: 55px;
+}
+
+/*rodapé*/
+
+.redessociais{
+	width: 100%;
+}
+
+@media screen and (min-width: 100px) and (max-width: 800px) {    
+.redessociais { 
+	text-align:center;
+	display:block;
+	}
+}
+
+@media screen and (min-width: 800px) and (max-width: 1920px) {    
+.redessociais { 
+	/*text-align:right;*/
+	display:none;	
+	}
+}
