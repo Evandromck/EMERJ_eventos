@@ -1,0 +1,18 @@
+@import url(layout.css);
+@import url(pages.css);
+@import url(elements.css);
+@import url(framework.css);
+@import url(fonts/caviardreams/stylesheet.css);
+@import url(fonts/font-awesome/font-awesome.min.css);
+
+/* If you want to add your own css code, please do it in the custom.css file */
+@import url(custom.css);
+
+/* Remove this before using the template */
+
+@import url(demo-only.css);.wrapper.row3 #container #homepage .two_third.first article .emphasise.nospace strong {
+	color: #00344C;
+}
+#container #homepage .two_third.first .two_third.first #main2 #welcome2 .story #corpoTemplate2 h2 {
+	text-align: center;
+}

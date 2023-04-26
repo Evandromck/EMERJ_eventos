@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#centro {
+	margin-left:0px;
+	margin-right:0px;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+@media screen and and (max-width: 100px) {  
+.artdirection { 
+	max-width: 100%;
+	height: 11.5em;
+	border: 0px solid gold;
+	background-image:url(../images/header/header_100a400.jpg);
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+
+@media screen and (min-width: 100px) and (max-width: 400px) {  
+.artdirection { 
+	max-width: 100%;
+	height: 11.5em;
+	border: 0px solid gold;
+	background-image:url(../images/header/header_100a400.jpg);	
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+@media screen and (min-width: 400px) and (max-width: 700px) {  
+.artdirection { 
+	background-image:url(../images/header/header_400a700.jpg); 
+	height: 13em;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+@media screen and (min-width: 700px) and (max-width: 1000px) {  
+.artdirection { 
+	background-image:url(../images/header/header_700a1000.jpg); 
+	height: 9.5em;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+@media screen and (min-width: 1000px) and (max-width: 1600px) {  
+.artdirection { 
+	background-image:url(../images/header/header_1000a1600.jpg); 
+	height: 12.5em;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+@media screen and (min-width: 1600px) and (max-width: 1902px) {    
+.artdirection { 
+	height: 12.5em;
+	/*width: 118em;*/
+	background-image:url(../images/header/header_1900.jpg);
+	max-width: 1902px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+@media screen and (min-width: 1903px) {  
+.artdirection { 
+	height: 13.5em;
+	width: 1903px;
+	background-image:url(../images/header/header_1900.jpg);
+	min-width:1903px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+/* Retina */
+@media screen and (max-width: 640px) and (orientation:portrait) and (-webkit-min-device-pixel-ratio: 2)  {
+.artdirection { 
+	background-image:url(../images/header/header_100a400.jpg);
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
+
+/* max device width */
+@media screen and (max-device-width: 480px) {
+	.artdirection { 		
+	background-image:url(../images/header/header_100a400.jpg);
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin-top:0px;
+	}
+}
