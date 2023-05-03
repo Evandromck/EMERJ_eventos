@@ -43,7 +43,7 @@
 					$_SESSION['autorizacao'] = $dados['autorizacao'];
 					header('location: alteracaoParticipante.php');
 					
-				elseif(($dados['cpf'] == '00000000000') && !empty($dados['documento_estrangeiro'])):
+				elseif(($dados['cpf'] == NULL) && !empty($dados['documento_estrangeiro'])):
 					$_SESSION['nome'] = $dados['nome'];
 					$_SESSION['documento_estrangeiro'] = $dados['documento_estrangeiro'];
 					$_SESSION['pais'] = $dados['pais'];

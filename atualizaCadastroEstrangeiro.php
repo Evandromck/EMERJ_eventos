@@ -26,7 +26,7 @@
 	if (!empty($nome)){
 		
 		$sql_consulta = "UPDATE participante_novo 
-						 SET nome = '$nome', sexo = '$sexo', pais = '$paises', email = '$email', celular = '$tel', senha = '$senha', autorizacao = '$autorizacao', data_alteracao = NOW()  
+						 SET nome = '$nome', sexo = '$sexo', pais = '$paises', email = '$email', celular = '$tel', senha = '$senha', autorizacao =  '$autorizacao', data_alteracao =  NOW()  
 						 WHERE '$docEstrangeiro' = documento_estrangeiro"; 
 		$sql_result_consulta = mysqli_query($conexao, $sql_consulta) or die(mysqli_error($conexao));
 		//$sql_num_rows_consulta = mysqli_num_rows($sql_result_consulta);

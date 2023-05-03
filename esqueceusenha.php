@@ -1,5 +1,5 @@
 <?php 
-require_once('recursos/conexao.php'); 
+require_once('./conexao.php');
 require_once('recursos/enviaMail.php');
 
 session_start();
@@ -52,7 +52,7 @@ if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
 			document.form1.hdAcao.value = "buscar";
 			document.form1.submit();
 		} else {
-			alert("O campo CPF não foi preenchido corretamente.");
+			alert("O campo CPF nï¿½o foi preenchido corretamente.");
 		}
 	}
 	
@@ -61,7 +61,7 @@ if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
 			document.form1.hdAcao.value = "enviarSenha";
 			document.form1.submit();
 		} else {
-			alert("O campo CPF está incorreto.");
+			alert("O campo CPF estï¿½ incorreto.");
 		}
 	}
 
@@ -74,7 +74,7 @@ if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
 				alert("O campo SENHA deve ser preenchido corretamente\n");
 			}
 		} else {
-			alert("O campo CPF está incorreto.");
+			alert("O campo CPF estï¿½ incorreto.");
 		}
     }
 	
@@ -83,7 +83,7 @@ if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
 			document.form1.hdAcao.value = "cadastrar";
 			document.form1.submit();
 		} else {
-			alert("O campo CPF está incorreto.");
+			alert("O campo CPF estï¿½ incorreto.");
 		}
 	}
 </script>
@@ -165,8 +165,8 @@ body {
       </li>
       <li><a class="drop" href="#" title="CURSOS">CURSOS</a>
         <ul>
-          <li><a href="http://www.emerj.tjrj.jus.br/paginas/cursos/curso_especializacao/cursoespecializacaoemdireito.html" title="Curso de Especialização em Direito Público e Privado">Curso de Especializa&ccedil;&atilde;o em </br> Direito P&uacute;blico e Privado<br></a></li>
-            <li><a href="http://www.emerj.tjrj.jus.br/paginas/cursos/curso_especializacao/cursodeespecializacaointro.html" title="Curso de Especializa&ccedil;&atilde;o nas </br> &Aacute;reas do Direito </br> P&oacute;s-Graduação <i>Lato Sensu</i>">Curso de Especializa&ccedil;&atilde;o nas </br> &Aacute;reas do Direito </br> P&oacute;s-Gradua&ccedil;&atilde;o <i>Lato Sensu</i></a></li>
+          <li><a href="http://www.emerj.tjrj.jus.br/paginas/cursos/curso_especializacao/cursoespecializacaoemdireito.html" title="Curso de Especializaï¿½ï¿½o em Direito Pï¿½blico e Privado">Curso de Especializa&ccedil;&atilde;o em </br> Direito P&uacute;blico e Privado<br></a></li>
+            <li><a href="http://www.emerj.tjrj.jus.br/paginas/cursos/curso_especializacao/cursodeespecializacaointro.html" title="Curso de Especializa&ccedil;&atilde;o nas </br> &Aacute;reas do Direito </br> P&oacute;s-Graduaï¿½ï¿½o <i>Lato Sensu</i>">Curso de Especializa&ccedil;&atilde;o nas </br> &Aacute;reas do Direito </br> P&oacute;s-Gradua&ccedil;&atilde;o <i>Lato Sensu</i></a></li>
 
           <li><a href="http://www.emerj.tjrj.jus.br/paginas/cursos/premerj/premerj.html" title="PREMERJ">PREMERJ</a></li>
           <li><a href="http://www.emerj.tjrj.jus.br/paginas/cursos/cursodeextensao/cursodeextensaoemerj.html" title="Cursos de Extens&atilde;o">Cursos de Extens&atilde;o</a></li>
@@ -317,7 +317,7 @@ $tipoDispositivoMovel='';
     	$browser = 'Firefox for iOS';
 	}  
   	if (strpos($_SERVER['HTTP_USER_AGENT'], 'OPiOS') !== FALSE) {
-    	$browser = 'Ópera for iOS.';
+    	$browser = 'ï¿½pera for iOS.';
 	}  
 	if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE ||
     	strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE) {
@@ -337,16 +337,16 @@ $tipoDispositivoMovel='';
         <div align="justify" class="style1 style5">
           <?php 
 	if ($acao == "ativar") {
-		echo ("<script language='javascript'>alert('Seu cadastro não foi ativado.');</script>
+		echo ("<script language='javascript'>alert('Seu cadastro nï¿½o foi ativado.');</script>
 			<p><b>Seu cadastro n&atilde;o foi ativado.</b>
 			<br />Foi reenviado um e-mail informando como ativ&aacute;-lo.<br />
-			   Verifique dentro de alguns instantes e siga as instru&ccedil;&otilde;es para ativá-lo.<br />
-			   Caso n&atilde;o receba o e-mail nos pr&oacute;ximos 15 minutos, verifique as configurações de sua caixa de entrada e desabilite filtros de spam (lixo eletr&ocirc;nico) para o endereço <a href='mailto:emerjsite@tjrj.jus.br'>emerjsite@tjrj.jus.br</a><br />
+			   Verifique dentro de alguns instantes e siga as instru&ccedil;&otilde;es para ativï¿½-lo.<br />
+			   Caso n&atilde;o receba o e-mail nos pr&oacute;ximos 15 minutos, verifique as configuraï¿½ï¿½es de sua caixa de entrada e desabilite filtros de spam (lixo eletr&ocirc;nico) para o endereï¿½o <a href='mailto:emerjsite@tjrj.jus.br'>emerjsite@tjrj.jus.br</a><br />
 			   Se possuir filtro anti-spam do UOL (ou similar), seu e-mail ser&aacute; enviado em at&eacute; 24 horas &uacute;teis.</p>
 		<hr><a href='http://www.emerj.tjrj.jus.br/index.html'>voltar</a>");
 	}
 	if ($acao == "senha") { 
-		echo("<p>A senha está incorreta.</p>
+		echo("<p>A senha estï¿½ incorreta.</p>
 		<hr><a href='participante.php'>voltar</a>");
 	}
 	if ($acao == "naoEncontrado") {
