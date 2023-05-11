@@ -14,23 +14,7 @@
 			
 			var senhaok = form.senha.value;
 			var conf_senha = form.confir_senha.value;
-			/*
-			if(emailok == conf_email){
-				return true;
-			}else{
-				alert('Email diferente');
-				form.confir_email.focus();
-				return false;
-			}
 			
-			if(senhaok == conf_senha){
-				return true;
-			}else{
-				alert('Senha diferente');
-				form.confir_senha.focus();
-				return false;
-			}
-			*/
 			if(emailok != conf_email){
 				alert('Email diferente');
 				form.confir_email.focus();
