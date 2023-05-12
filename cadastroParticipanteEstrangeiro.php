@@ -8,53 +8,7 @@
 <html><!-- InstanceBegin template="/Templates/controledeeventos.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 
-<script type="text/javascript">
-		function validar(){
-      
-      const emailInput = document.querySelector('#email');
-      const confirEmailInput = document.querySelector('#confir_email');
-      const errorMsg = document.querySelector('#error-msg');
 
-      var emailok = form.email.value;
-			var conf_email = form.confir_email.value;
-			
-			var senhaok = form.senha.value;
-			var conf_senha = form.confir_senha.value;
-
-     
-      confirEmailInput.addEventListener('blur', () => {
-      if (confirEmailInput.value !== emailInput.value) {
-        errorMsg.textContent = 'Os endereços de email não coincidem.';
-       
-      } else {
-        errorMsg.textContent = '';
-      }
-        });
-
-
-
-			
-		
-			if(confirEmailInput.value !== emailInput.value){
-				alert('Email diferente');
-				form.confir_email.focus();
-        
-				return false;
-				
-			}else if(senhaok != conf_senha){
-				alert('Senha diferente');
-				form.confir_senha.focus();
-        
-				return false;
-				
-			}else{
-				return true;
-			}	
-			
-		}
-		
-
-	</script>
 
 
 <title>.: ESCOLA DA MAGISTRATURA DO ESTADO DO RIO DE JANEIRO - EMERJ :.</title>
@@ -270,16 +224,16 @@ body {
 								</table>
 								<table width="100%" class="tabelanew_eventos">
         	      					<tr>
-                          <!-- <td width="20%"><span style="font-size:15px;">Pais</span></td> -->
+                          <td width="20%"><span style="font-size:15px;">Pais</span></td>
             	    					<td width="20%"><span style="font-size:15px;">Sexo</span></td>
-                            <td width="20%"><span  style="font-size:15px;">Tel. Celular</span></td>
+                            <td><span style="font-size:15px;">Tel. Celular</span></td>
   	            					</tr>
 
     	          					<tr>
-			<!-- <td>
+			<td>
         <select name="paises" id="paises" class="campo_form">
             <option value="" selected="selected">Selecionar</option>
-            <option value="Brasil">Brasil</option>
+            <!-- <option value="Brasil">Brasil</option> -->
             <option value="Afeganistão">Afeganistão</option>
             <option value="África do Sul">África do Sul</option>
             <option value="Albânia">Albânia</option>
@@ -530,7 +484,7 @@ body {
             <option value="Zimbabwe">Zimbabwe</option>
             <option value="Zâmbia">Zâmbia</option>
         </select>
-        </td> -->
+        </td>
         	        					<td width="10%">
 <select id="sexo" name="sexo" required  class="campo_form">
 	
@@ -572,44 +526,24 @@ body {
 			</table>
 
 			<table width="100%" class="tabelanew_eventos">
-  <tr>
-    <td><span style="font-size:15px;">E-mail* </span></td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td><span style="font-size:15px;">Confirma&ccedil;&atilde;o do e-mail*</span></td>
-  </tr>
-  <tr>
-    <td>
-      <input id="email" name="email" type="text" required class="campo_form" size="35" maxlength="50" />
-    </td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>
-      <input id="confir_email" name="confir_email" required type="email" class="campo_form" size="35" maxlength="50" />
-      <span id="error-msg" style="color: red;"></span>
-    </td>
-  </tr>
-</table>
-<script>
-
-/* --------------------------------------------------------------------- */
-
-
- const emailInput = document.querySelector('#email');
-const confirEmailInput = document.querySelector('#confir_email');
-const errorMsg = document.querySelector('#error-msg');
-
-confirEmailInput.addEventListener('blur', () => {
-  if (confirEmailInput.value !== emailInput.value) {
-    errorMsg.textContent = 'Os endereços de email não coincidem.';
-  } else {
-    errorMsg.textContent = '';
-  }
-}); 
-
-</script>
-
-
+				<tr>
+					<td><span style="font-size:15px;">E-mail* </span></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+					<td><span style="font-size:15px;">Confirma&ccedil;&atilde;o do e-mail*</span></td>
+				</tr>
+				<tr>
+					<td>
+           <?php echo $_SESSION['email']; ?>
+          <!--
+            <input id="email" name="email" type="text"  required class="campo_form" size="35" maxlength="50" /></td>
+          -->
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    
+					<td><input id="confir_email" name="confir_email" required type="email" class="campo_form" size="35" maxlength="50" /></td>
+				</tr>
+               </table>
     <!--
 			<table width="100%" class="tabelanew_eventos">
 				<tr>
@@ -799,6 +733,36 @@ confirEmailInput.addEventListener('blur', () => {
         
 
     </script>
+
+<script type="text/javascript">
+		
+		function validar(){
+			var emailok = '<?php echo $_SESSION["email"]; ?>';
+			var conf_email = form.confir_email.value;
+			
+			var senhaok = form.senha.value;
+			var conf_senha = form.confir_senha.value;
+
+      console.log(emailok,conf_email)
+
+      console.log(emailok,conf_email);
+		
+			if(emailok != conf_email){
+				alert('Email diferente');
+				form.confir_email.focus();
+				return false;
+				
+			}else if(senhaok != conf_senha){
+				alert('Senha diferente');
+				form.confir_senha.focus();
+				return false;
+				
+			}else{
+				return true;
+			}	
+		}
+
+	</script>
 
 
 

@@ -205,8 +205,7 @@ body {
                             <tr>
 
                               <td width="45%"><span id="nome_cpf" style="font-size:15px;">CPF*</span></td>
-                              <td width="10%">&nbsp;</td>
-							  
+                              <td width="10%">&nbsp;</td>						  
                             
                             </tr>
 							
