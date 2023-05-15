@@ -1,8 +1,5 @@
 <?php
   session_start();
-  if(!isset($_SESSION['documento_estrangeiro'])):
-	header('location: alterarCadastroParticipante.php');
-  endif;
 ?>
 <script language="JavaScript" src="recursos/validador.js"></script>
 <link href="css/default_eventos.css" rel="stylesheet" type="text/css" />
@@ -196,7 +193,7 @@ body {
     <!-- ################################################################################################ -->
     <div id="portfolio" class="three_quarter"><!-- InstanceBeginEditable name="conteudo_eventos" -->
     
-    <p class="row5"><strong><span style="font-size:20px">ALTERAÇÃO DE CADASTRO</span></strong></p>
+    <p class="row5"><strong><span style="font-size:20px">CADASTRO DE PARTICIPANTES</span></strong></p>
     
         <br />
         <!--
@@ -205,7 +202,7 @@ body {
 
         <input type="radio" onclick="desativar()" style="width:50px" id="outros_paises" name="nacionalidade" value="estrangeiro"><strong><b style="font-size:25px">Estrangeiro</b></strong> <br/>
       -->
-<form method="post" id="form" name="form" action="atualizaCadastroEstrangeiro.php">
+<form method="post" id="form" name="form" action="resultTesteEstrangeiro.php">
 						<table width="100%" class="tabelanew_eventos">
              
                             <tr>
@@ -216,15 +213,11 @@ body {
                             <tr>
                                 <td>
 
-
-<input type="text" id="name" name="name" value="<?php echo $_SESSION['nome'];?>" required  class="campo_form" size="80" maxlength="60" /></td>
+<input type="text" id="name" name="name" required  class="campo_form" size="80" maxlength="60" /></td>
 <td>&nbsp;</td>
 
 	                					<td><span style="font-size:15px;">
-<!--								
-<input type="text" id="cpfEstranheiro" value="" name="documentoEstrangeiro" required  class="campo_form" size="40"/>
--->
-<?php echo $_SESSION['documento_estrangeiro'];?>
+<input type="text" id="cpfEstranheiro" name="documentoEstrangeiro" required  class="campo_form" size="40"/>
 </span></td>
 
     	          					</tr>
@@ -238,20 +231,9 @@ body {
 
     	          					<tr>
 			<td>
-			
         <select name="paises" id="paises" class="campo_form">
-		    <?php 
-			/*
-			    $pais = $_SESSION['pais'];
-			    if(!empty($pais)):
-				  echo '<option value="$pais">'. $pais .'</option>';
-				else:
-				  echo '<option value="">Selecionar</option>';
-				endif;
-			*/
-			?>
-            
-            <option value="Brasil">Brasil</option>
+            <option value="" selected="selected">Selecionar</option>
+            <!-- <option value="Brasil">Brasil</option> -->
             <option value="Afeganistão">Afeganistão</option>
             <option value="África do Sul">África do Sul</option>
             <option value="Albânia">Albânia</option>
@@ -504,35 +486,13 @@ body {
         </select>
         </td>
         	        					<td width="10%">
-<select id="sexo" name="sexo"  class="campo_form">
-
-		<?php if ($_SESSION['sexo'] == "F"):
-				  echo '<option value="F">Feminino</option>';
-				  echo '<option value="M">Masculino</option>';
-				  echo '<option value="I">Não informar</option>';
-		  
-			  elseif ($_SESSION['sexo'] == "M"):
-				  echo '<option value="M">Masculino</option>';
-				  echo '<option value="F">Feminino</option>';
-				  echo '<option value="I">Não informar</option>';
-			 
-			 elseif ($_SESSION['sexo'] == "I"):
-				  echo '<option value="I">Não informar</option>';
-				  echo '<option value="M">Masculino</option>';
-				  echo '<option value="F">Feminino</option>';
-			else:
-				  echo '<option value="">Selecionar</option>';
-				  echo '<option value="I">Não informar</option>';
-				  echo '<option value="M">Masculino</option>';
-				  echo '<option value="F">Feminino</option>';
-			endif;
-	?>
-	<!--
-			<option value="" selected>Selecionar</option>
+<select id="sexo" name="sexo" required  class="campo_form">
+	
+	<option value="" selected>Selecionar</option>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
             <option value="I">Não informar</option>
-	-->
+	
 	
 </select></td>
 										
@@ -542,7 +502,7 @@ body {
 
 <td width="60%">
 					
-<div style="float:left; width:90%;"><input id="telEstrangeiro" name="tel" value="<?php echo $_SESSION['celular'];?>"" type="text" class="campo_form" /></div></td>
+<div style="float:left; width:90%;"><input id="telEstrangeiro" name="tel" type="text" class="campo_form" /></div></td>
 
 
 
@@ -553,37 +513,68 @@ body {
 			</table>
 			<table width="100%" class="tabelanew_eventos">
 			
-			
-			
-			
-
-			</td>
-		
-      
+			</td>   
       
 			
 		
 			</table>
 
-			<table width="100%" class="tabelanew_eventos">
-				<tr>
-					<td><span style="font-size:15px;">E-mail* </span></td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-					<td><span style="font-size:15px;">Confirma&ccedil;&atilde;o do e-mail*</span></td>
-				</tr>
-				<tr>
-					<td>
-           
-          
-            <input id="email" name="email" type="text"  value="<?php echo $_SESSION['email'];?>" required class="campo_form" size="35" maxlength="50" /></td>
-          
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    
-					<td><input id="confir_email" name="confir_email" required type="email" class="campo_form" size="35" maxlength="50" /></td>
-				</tr>
-               </table>
+
+               <!-- Formulario com verificacao dinamica do email compativel -->
+
+
+	<style>
+  .error-input {
+    border: 2px solid red;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+</style>
+
+
+<script type="text/javascript">
+  function checkEmail() {
+    var emailValue = "<?php echo $_SESSION['email']; ?>";
+    var confirEmailInput = document.querySelector('#confir_email');
+    var errorMessage = document.querySelector('#error-msg');
+
+    if (confirEmailInput.value !== emailValue) {
+      confirEmailInput.classList.add('error-input');
+      errorMessage.textContent = 'Os endereços de email não coincidem.';
+    } else {
+      confirEmailInput.classList.remove('error-input');
+      errorMessage.textContent = '';
+    }
+  }
+</script>
+
+<table width="100%" class="tabelanew_eventos">
+  <tr>
+    <td><span style="font-size:15px;">E-mail*</span></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><span style="font-size:15px;">Confirma&ccedil;&atilde;o do e-mail*</span></td>
+  </tr>
+  <tr>
+    <td>
+      <?php echo $_SESSION['email']; ?>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>
+      <input id="confir_email" name="confir_email" required type="email" class="campo_form" size="35" maxlength="50" onblur="checkEmail()" />
+      <span id="error-msg" class="error-message"></span>
+    </td>
+  </tr>
+</table>      
+
+
+
+
     <!--
 			<table width="100%" class="tabelanew_eventos">
 				<tr>
@@ -640,11 +631,7 @@ body {
                 <table width="100%" class="tabelanew_eventos">
                             <tr>
 							  <td colspan="4" width="100%"><div style="float:left; width:5%;"><span style="font-size:15px;">
-							  <input name="terms" id="terms" value="1" type="checkbox" <?php if($_SESSION['autorizacao'] == 1):
-																								 echo "checked";
-																							endif;
-																									//echo $_SESSION['autorizacao']; 
-																					    ?>/>
+							  <input name="terms" id="terms" value="1" type="checkbox" />
 							  </span>&nbsp;</div><div style="float:left; width:95%;"><span style="font-size:15px;">Autorizo a EMERJ a me enviar e-mails <a href="http://www.emerj.tjrj.jus.br/paginas/eventos/politicaprivacidade.html" class="style1" target="_blank">(Pol&iacute;tica de Privacidade)</a></span></div></td>
 							</tr>
 							<tr>
@@ -656,8 +643,7 @@ body {
 							<tr>
 								<td height="30" colspan="4">
                                   <div align="center">
-                                    <input type="submit" onclick="return validar()" name="submit" id="submit" value="Atualizar Dados" onclick=" return validarForm()">
-									
+                                    <input type="submit" onclick="return validar()" name="submit" id="submit" value="Cadastrar" onclick=" return validarForm()">
                               </div></td>
 							</tr>
 						</table>
@@ -715,6 +701,39 @@ body {
     <!--<script src="js/funcoes.js"></script>-->
 	<script src="js/funcoesValidaEmailSenha.js"></script>
 	
+
+<script type="text/javascript">
+/*
+            document.getElementById('name').select();
+            document.getElementById('cpf').disabled = false;
+            document.getElementById('profissao').disabled = false;
+            document.getElementById('matEmerj').disabled = false;
+            document.getElementById('matTj').disabled = false;
+            document.getElementById('paises').disabled = false;
+            document.getElementById('uf').disabled = false;
+            document.getElementById('email').disabled = false;
+            document.getElementById('tel').disabled = false;
+            document.getElementById('senha').disabled = false;
+            document.getElementById('confir_senha').disabled = false;
+            
+            function desativar(){
+
+            if(document.getElementById('pais_brasil').checked == true){
+
+                document.getElementById('txtNome').select();
+                document.getElementById('txtNome').disabled = false;
+                document.getElementById('cpf').disabled = true;
+
+            }
+              else if(document.getElementById('outros_paises').checked == true){
+
+                document.getElementById('cpf').select();
+                document.getElementById('cpf').disabled = false;
+                document.getElementById('txtNome').disabled = true;
+              }
+            }
+	*/
+</script>
     <script>
             
 	
@@ -745,15 +764,18 @@ body {
         
 
     </script>
-	
-	
-	<script>
+
+<script type="text/javascript">
+		
 		function validar(){
-			var emailok = form.email.value;
+      
+			var emailok = '<?php echo $_SESSION["email"]; ?>';
 			var conf_email = form.confir_email.value;
 			
 			var senhaok = form.senha.value;
 			var conf_senha = form.confir_senha.value;
+
+      
 		
 			if(emailok != conf_email){
 				alert('Email diferente');
@@ -769,7 +791,10 @@ body {
 				return true;
 			}	
 		}
-</script>
+
+       
+ 
+	</script>
 
 
 
