@@ -513,37 +513,68 @@ body {
 			</table>
 			<table width="100%" class="tabelanew_eventos">
 			
-			
-			
-			
-
-			</td>
-		
-      
+			</td>   
       
 			
 		
 			</table>
 
-			<table width="100%" class="tabelanew_eventos">
-				<tr>
-					<td><span style="font-size:15px;">E-mail* </span></td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-					<td><span style="font-size:15px;">Confirma&ccedil;&atilde;o do e-mail*</span></td>
-				</tr>
-				<tr>
-					<td>
-           <?php echo $_SESSION['email']; ?>
-          <!--
-            <input id="email" name="email" type="text"  required class="campo_form" size="35" maxlength="50" /></td>
-          -->
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    
-					<td><input id="confir_email" name="confir_email" required type="email" class="campo_form" size="35" maxlength="50" /></td>
-				</tr>
-               </table>
+
+               <!-- Formulario com verificacao dinamica do email compativel -->
+
+
+	<style>
+  .error-input {
+    border: 2px solid red;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+</style>
+
+
+<script type="text/javascript">
+  function checkEmail() {
+    var emailValue = "<?php echo $_SESSION['email']; ?>";
+    var confirEmailInput = document.querySelector('#confir_email');
+    var errorMessage = document.querySelector('#error-msg');
+
+    if (confirEmailInput.value !== emailValue) {
+      confirEmailInput.classList.add('error-input');
+      errorMessage.textContent = 'Os endereços de email não coincidem.';
+    } else {
+      confirEmailInput.classList.remove('error-input');
+      errorMessage.textContent = '';
+    }
+  }
+</script>
+
+<table width="100%" class="tabelanew_eventos">
+  <tr>
+    <td><span style="font-size:15px;">E-mail*</span></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><span style="font-size:15px;">Confirma&ccedil;&atilde;o do e-mail*</span></td>
+  </tr>
+  <tr>
+    <td>
+      <?php echo $_SESSION['email']; ?>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>
+      <input id="confir_email" name="confir_email" required type="email" class="campo_form" size="35" maxlength="50" onblur="checkEmail()" />
+      <span id="error-msg" class="error-message"></span>
+    </td>
+  </tr>
+</table>      
+
+
+
+
     <!--
 			<table width="100%" class="tabelanew_eventos">
 				<tr>
@@ -737,15 +768,14 @@ body {
 <script type="text/javascript">
 		
 		function validar(){
+      
 			var emailok = '<?php echo $_SESSION["email"]; ?>';
 			var conf_email = form.confir_email.value;
 			
 			var senhaok = form.senha.value;
 			var conf_senha = form.confir_senha.value;
 
-      console.log(emailok,conf_email)
-
-      console.log(emailok,conf_email);
+      
 		
 			if(emailok != conf_email){
 				alert('Email diferente');
@@ -762,6 +792,8 @@ body {
 			}	
 		}
 
+       
+ 
 	</script>
 
 
