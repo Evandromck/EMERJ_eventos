@@ -8,32 +8,7 @@
 <html><!-- InstanceBegin template="/Templates/controledeeventos.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 
-<script type="text/javascript">
-		function validar(){
-			//var emailok = form.email.value;
-			//var conf_email = form.confir_email.value;
-			
-			var senhaok = form.senha.value;
-			var conf_senha = form.confir_senha.value;
-		/*
-			if(emailok != conf_email){
-				alert('Email diferente');
-				form.confir_email.focus();
-				return false;
-				
-			}else*/ if(senhaok != conf_senha){
-				alert('Senha diferente');
-				form.confir_senha.focus();
-				return false;
-				
-			}else{
-				return true;
-			}	
-			
-		}
-		
 
-	</script>
 
 
 <title>.: ESCOLA DA MAGISTRATURA DO ESTADO DO RIO DE JANEIRO - EMERJ :.</title>
@@ -758,6 +733,36 @@ body {
         
 
     </script>
+
+<script type="text/javascript">
+		
+		function validar(){
+			var emailok = '<?php echo $_SESSION["email"]; ?>';
+			var conf_email = form.confir_email.value;
+			
+			var senhaok = form.senha.value;
+			var conf_senha = form.confir_senha.value;
+
+      console.log(emailok,conf_email)
+
+      console.log(emailok,conf_email);
+		
+			if(emailok != conf_email){
+				alert('Email diferente');
+				form.confir_email.focus();
+				return false;
+				
+			}else if(senhaok != conf_senha){
+				alert('Senha diferente');
+				form.confir_senha.focus();
+				return false;
+				
+			}else{
+				return true;
+			}	
+		}
+
+	</script>
 
 
 

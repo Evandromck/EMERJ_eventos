@@ -754,6 +754,8 @@ body {
 			
 			var senhaok = form.senha.value;
 			var conf_senha = form.confir_senha.value;
+
+      console.log(emailok,conf_email);
 		
 			if(emailok != conf_email){
 				alert('Email diferente');
