@@ -190,55 +190,64 @@ body {
     
         <br />
         
-        
+         <input type="radio" onclick="desativar()" style="width:50px" id="pais_brasil" name="nacionalidade" value="Brasileiro"><strong><b style="font-size:20px">Brasileiro</b></strong>
+
+          &nbsp; &nbsp; &nbsp; &nbsp;
+
+          <input type="radio" onclick="desativar()" style="width:50px" id="outros_paises" name="nacionalidade" value="estrangeiro"><strong><b style="font-size:20px">Estrangeiro</b></strong> <br />
+          <br />
         
         <STRONG>Digite seu e-mail e a senha cadastrada. Em seguida, clique em Alterar Cadastro.<STRONG>
         
         &nbsp; &nbsp; &nbsp; &nbsp;
 
         
-    
+   
 <form method="post" id="form" name="form" action="validaAlteracaoCadastro.php">
 						<table width="100%" class="tabelanew_eventos">
 						
-						
-						
-							<tr>
-								  <td width="45%"><span id="nome_email" style="font-size:15px;">EMAIL*</span></td>
-							</tr>
-							<tr>
-                              
-                              <td width="45%">
-                                <input type="email" id="email" required name="email" class="campo_form" maxlength="50" size="40">
-							</td>
-             
-                            <tr>
+						    <tr>
+                  <td width="45%" ><span id="nome_cpf"  style="font-size:15px;" >CPF*</span></td>
+                    
+                  </tr>
 
-                              <td width="45%"><span id="id_senha" style="font-size:15px;">SENHA*</span></td>
-                              <td width="10%">&nbsp;</td>
+
+                  <tr>
+                    <td width="45%">
+                      <input type="text" id="cpf" required name="cpf" class="campo_form" size="40" />
+                    </td>
+                    
+                  </tr>	         
+
+                 <tr>
+								  <td width="45%" ><span id="nome_email" style="font-size:15px;" >EMAIL*</span></td>                  
+							  </tr>
+							  <tr>
+                              
+                  <td width="45%">
+                    <input type="email" id="email" required name="email" class="campo_form" maxlength="50" size="40">
+							  </td>
+             
+                  <tr>
+
+                    <td width="45%"><span id="id_senha" style="font-size:15px;">SENHA*</span></td>
+                    <td width="2%">&nbsp;</td>
 							  
                             
-                            </tr>
-							
-                            <tr>
-                              <td width="45%">
-                                <input type="password" id="senha" required name="senha"  class="campo_form" size="40"/>
-                              </td>
+                </tr>
   
-                              <td width="55%">&nbsp;</td>
-							</tr>
+                <tr>
+                  <td width="45%">
+                    <input type="password" id="senha" required name="senha"  class="campo_form" size="40"/>
+                  </td>
+  
+              <td width="55%">&nbsp;</td>
+							</tr>			
 							
-							
-							
+              </table>							
 
-
-    	          			
-								</table>
-								
-
-				
-                <table width="100%" class="tabelanew_eventos">
-                            <tr>
+				<table width="100%" class="tabelanew_eventos">
+              <tr>
 
 							</tr>
 							<tr>
@@ -332,7 +341,47 @@ body {
         });
 
     </script>
+    
+     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/funcoes.js"></script>
 
+    <script type="text/javascript">
+      document.getElementById('cpf').select();
+      document.getElementById('cpf').disabled = false;
+      document.getElementById('nome_cpf').style.display = "block";
+      //document.getElementById('email').disabled = true;
+      //document.getElementById('email').display.block = true;
+      document.getElementById('email').style.display = "none";
+      document.getElementById('nome_email').style.display = "none";
+
+      function desativar() {
+
+        if (document.getElementById('pais_brasil').checked == true) {
+
+          document.getElementById('cpf').select();
+          document.getElementById('cpf').disabled = false;
+          document.getElementById('cpf').style.display = "block";
+          document.getElementById('nome_cpf').style.display = "block";
+
+          document.getElementById('email').disabled = true;
+          document.getElementById('email').style.display = "none";
+          document.getElementById('nome_email').style.display = "none";
+
+
+        } else if (document.getElementById('outros_paises').checked == true) {
+
+          document.getElementById('email').select();
+          document.getElementById('email').disabled = false;
+          document.getElementById('email').style.display = "block";
+          document.getElementById('nome_email').style.display = "block";
+
+          document.getElementById('cpf').disabled = true;
+          document.getElementById('cpf').style.display = "none";
+          document.getElementById('nome_cpf').style.display = "none";
+        }
+      }
+    </script>
 
 
 
