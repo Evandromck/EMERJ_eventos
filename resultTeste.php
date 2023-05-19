@@ -6,7 +6,7 @@
 	$cpf          = preg_replace('/[^0-9]/',"",$_SESSION['cpf']);
 	session_destroy();
 	$sexo         = $_POST['sexo'];
-	$profissao    = $_POST['profissao'];
+	// $profissao    = $_POST['profissao'];
 	$matEmerj     = $_POST['matEmerj'];
 	$matTj        = $_POST['matTj'];
 	$paises       = $_POST['paises'];
@@ -51,9 +51,9 @@
 				$matTj = null;
 			endif;
 
-			$sql_insert = "INSERT INTO participante_novo (nome, cpf, sexo, profissao, matricula_emerj, matricula_tj,
+			$sql_insert = "INSERT INTO participante_novo (nome, cpf, sexo, matricula_emerj, matricula_tj,
 														pais, estado, email, celular, senha, autorizacao, data_cadastro)
-						VALUE ('$nome', '$cpf', '$sexo', '$profissao', '$matEmerj', '$matTj', 
+						VALUE ('$nome', '$cpf', '$sexo', '$matEmerj', '$matTj', 
 								'$paises', '$uf', '$email', '$tel', '$senha', '$autorizacao', NOW())"; 
 
 			$sql_resul_insert = mysqli_query($conexao, $sql_insert) or die(mysqli_error($conexao));

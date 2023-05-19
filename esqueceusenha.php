@@ -1,6 +1,6 @@
 <?php
 require_once('conexao.php');
-require_once('recursos/enviaMail.php');
+// require_once('recursos/enviaMail.php');
 
 session_start();
 
@@ -17,7 +17,26 @@ if (isset($_SERVER["QUERY_STRING"]))
 --------------------------------------------------------------------- */
 if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
   $email = $_POST['email'];
-  $query_rsBusca =   "SELECT codigo, nome, cpf, email, senha, ativo " .
+  $cpf = str_replace(array('.', '-'), '', $_POST['txtMascaraCpf']);
+
+  if($cpf != null){
+    $query_rsBusca =   "SELECT codigo, nome, cpf, email, senha " .
+    "FROM participante_novo " .
+    "WHERE cpf = '$cpf' ";
+    $rsBusca = mysqli_query($conexao, $query_rsBusca) or die(mysqli_error($conexao));
+
+  $row_rsBusca = mysqli_fetch_assoc($rsBusca);
+  $totalRows_rsBusca = mysqli_num_rows($rsBusca);
+
+  $_SESSION["codParticipante"] = $row_rsBusca["codigo"];
+  $_SESSION["nome"] = $row_rsBusca["nome"];
+  $_SESSION["cpf"] =  $row_rsBusca["cpf"];
+  $_SESSION["email"] = $row_rsBusca["email"];
+
+  
+
+  }elseif( $email != null){
+    $query_rsBusca =   "SELECT codigo, nome, cpf, email, senha " .
     "FROM participante_novo " .
     "WHERE email = '$email' ";
     $rsBusca = mysqli_query($conexao, $query_rsBusca) or die(mysqli_error($conexao));
@@ -29,8 +48,12 @@ if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
   $_SESSION["nome"] = $row_rsBusca["nome"];
   $_SESSION["cpf"] =  $row_rsBusca["cpf"];
   $_SESSION["email"] = $row_rsBusca["email"];
-  $_SESSION["codAtivacao"] = $row_rsBusca["senha"];
-  $_SESSION["ativo"] = $row_rsBusca["ativo"];
+  
+  }
+  
+  
+  
+  
 
   // No cadastrado
   if ($totalRows_rsBusca == 0) {
@@ -39,11 +62,59 @@ if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
 
   if ($totalRows_rsBusca == 1) {
     if ($_POST["hdAcao"] == "enviarSenha") {
+      
       novaSenha();
       $acao = "novaSenha";
     }
   }
 }
+
+function novaSenha() {
+	
+  // var_dump($_SESSION["email"],$_SESSION["codParticipante"], $_SESSION["nome"],$_SESSION["cpf"]);
+  enviaEmail($_SESSION["email"], "Reativação de Senha", "email/senha.txt", $_SESSION["nome"] . "-" . $_SESSION["codParticipante"] . "-" );
+}
+
+function enviaEmail($para, $assunto, $arquivo, $parametros) {
+  $mensagem = NULL;
+
+  $parametro = explode("-", $parametros);
+
+  $pattern = array();
+  if (isset($parametro[0]))
+      $pattern["NOME"] = $parametro[0];
+  if (isset($parametro[1]))
+      $pattern["CODPARTICIPANTE"] = $parametro[1];
+  if (isset($parametro[2]))
+      $pattern["CODATIVACAO"] = $parametro[2];
+  if (isset($parametro[3]))
+      $pattern["CODEVENTO"] = $parametro[3];
+  if (isset($parametro[4]))
+      $pattern["NAMEEVENTO"] = $parametro[4];
+
+  $base = array();
+  $bnew = array();
+  foreach ($pattern as $key => $output) {
+      $base[] = $key;
+      $bnew[] = $output;
+  }
+
+  $fd = @fopen($arquivo, "r");
+  if ($fd) {
+      while (!feof($fd)) {
+          $line = fgets($fd, 2048);
+          $mensagem .= str_replace($base, $bnew, $line);
+      }
+      fclose($fd);
+
+      mail($para, $assunto, $mensagem,
+          "From: <emerjsite@tjrj.jus.br> \r\n"
+          ."Reply-To: site@tjrj.jus.br\r\n"
+          ."Content-type: text/html\r\n"
+          ."X-Mailer: PHP/" . phpversion());
+  }
+}
+
 
 ?>
 
@@ -433,7 +504,7 @@ if ((isset($_POST["hdAcao"])) && (($_POST["hdAcao"] == "enviarSenha"))) {
 
 
                         <tr valign="baseline">
-                          <td align="right" id="nome_email" nowrap="nowrap" class="textoT&iacute;tulo" valign="middle">EMAIL:</td>
+                          <td align="right" id="nome_email" nowrap="nowrap" class="textoT&iacute;tulo" valign="middle">E-MAIL:</td>
                           <td align="right" id="email" nowrap="nowrap" class="textoT&iacute;tulo"><input name="email" required type="email" class="textoNormal" size="20" maxlength="140" /></td>
                           <td align="right" nowrap="nowrap" class="textoT&iacute;tulo">&nbsp;</td>
                         </tr>

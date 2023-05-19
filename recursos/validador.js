@@ -4,18 +4,23 @@ function buscaParticipante() {
         document.form1.hdAcao.value = "buscar";
         document.form1.submit();
     } else {
-        alert("O campo CPF n�o foi preenchido corretamente.");
+        alert("O campo CPF não foi preenchido corretamente1.");
     }
 }
 
 function senhaParticipante() {
-    if (validaCPF()) {
+    var email = document.getElementById("email").value;
+    if (email !== "") {
+        document.form1.hdAcao.value = "enviarSenha";
+        document.form1.submit();
+    } else if (validaCPF()) {
         document.form1.hdAcao.value = "enviarSenha";
         document.form1.submit();
     } else {
-        alert("O campo CPF est� incorreto.");
+        alert("O campo CPF está incorreto.");
     }
 }
+
 
 function alterarDados() {
     if (validaCPF()) {
@@ -26,7 +31,7 @@ function alterarDados() {
             alert("O campo SENHA deve ser preenchido corretamente\n");
         }
     } else {
-        alert("O campo CPF est� incorreto.");
+        alert("O campo CPF está incorreto3.");
     }
 }
 
@@ -35,7 +40,7 @@ function cadastrarDados() {
         document.form1.hdAcao.value = "cadastrar";
         document.form1.submit();
     } else {
-        alert("O campo CPF est� incorreto.");
+        alert("O campo CPF está incorreto.");
     }
 }
 

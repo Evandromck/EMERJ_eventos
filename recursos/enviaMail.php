@@ -1,7 +1,7 @@
 <?
 function novaSenha() {
 	session_start();
-	enviaEmail($_SESSION["email"], "Reativação de Senha", "email/senha.txt", $_SESSION["nome"] . "-" . $_SESSION["codParticipante"] . "-" . $_SESSION["codAtivacao"]);
+	enviaEmail($_SESSION["email"], "Reativaï¿½ï¿½o de Senha", "email/senha.txt", $_SESSION["nome"] . "-" . $_SESSION["codParticipante"] . "-" . $_SESSION["codAtivacao"]);
 }
 
 function enviaEmail($para, $assunto, $arquivo, $parametros) {
@@ -31,8 +31,8 @@ function enviaEmail($para, $assunto, $arquivo, $parametros) {
 	fclose($fd);
 
 	mail($para, $assunto, $mensagem,
-	     "From: <emerjsite@tjrj.jus.br> \r\n"
-	     ."Reply-To: emerjsite@tjrj.jus.br\r\n"
+	     "From: <site@tjrj.jus.br> \r\n"
+	     ."Reply-To: site@tjrj.jus.br\r\n"
 		 ."Content-type: text/html\r\n"
 	     ."X-Mailer: PHP/" . phpversion());
 }
