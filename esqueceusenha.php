@@ -619,9 +619,7 @@ function enviaEmail($para, $assunto, $arquivo, $parametros) {
       }
     </script>
     <script type="text/javascript">
-      function console(){
-        console.log("Enviar")
-      }
+      
     </script>
 
 </body>
